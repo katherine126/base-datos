@@ -29,15 +29,15 @@ public class ServletAutenticar extends HttpServlet {
         
         //paso 1, por medio del request pedir un parametro, en este caso
         //el nombre
-          String name=request.getParameter("nombre");
+          String name=request.getParameter("login");
           String pas=request.getParameter("password");
           out.println("Bienvenido "+name);
-          if(pas.equals("hola")){
-          RequestDispatcher despachar= request.getRequestDispatcher("/maldito-gobierno-corrupto.html");
+          if(name.equals("kathy") && pas.equals("rafael")){
+          RequestDispatcher despachar= request.getRequestDispatcher("inicios.html");
           despachar.forward(request, response);
           }else{
-              request.setAttribute("valor", "los datos estan mal");
-              RequestDispatcher despachar= request.getRequestDispatcher("/autenticar.jsp");
+              request.setAttribute("valor", "Usuario o contraseña incorrectos");
+              RequestDispatcher despachar= request.getRequestDispatcher("index.jsp");
           despachar.forward(request, response);
           }
       
